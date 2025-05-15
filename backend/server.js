@@ -27,6 +27,9 @@ const PORT = process.env.PORT || 5000;
 
 app.use('/register-login', loginRegisterRoute);
 app.use('/news',newsRoute);
+app.use('/preferences/:email',(req, res) => {
+  res.send(`welcome to this page and your email is ${req.params.email}`);
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
