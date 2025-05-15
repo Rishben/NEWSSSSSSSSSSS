@@ -36,7 +36,7 @@ export default function Preferences() {
     setLoading(true);
     try {
       const response = await Axios.post(
-        `http://localhost:3000/register-login/preferences/${email}`,
+        `https://newsssssssssss-hltc.onrender.com/register-login/preferences/${email}`,
         { newsPreferences: selectedCategories },
         { withCredentials: true }
       );
