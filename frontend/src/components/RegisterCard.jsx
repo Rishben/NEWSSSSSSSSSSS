@@ -1,10 +1,12 @@
 import Axios from 'axios';
 import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterCard({ switchToLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+ const navigate=useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -66,7 +68,7 @@ export default function RegisterCard({ switchToLogin }) {
 
       if (response.data.success) {
         // Redirect to preferences page after successful registration
-        window.location.href = `/preferences/${formData.email}`;
+        navigate(`/preferences/${formData.email}`);
       } else {
         // Handle registration error
         setErrors({ ...errors, server: response.data.message });
