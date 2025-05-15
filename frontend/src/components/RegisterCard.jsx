@@ -61,7 +61,7 @@ export default function RegisterCard({ switchToLogin }) {
     console.log('Registration data:', formData);
 
     try {
-      const response = await Axios.post('http://localhost:3000/register-login/register', formData);
+      const response = await Axios.post('https://newsssssssssss-hltc.onrender.com/register-login/register', formData);
       console.log('Registration response:', response.data);
 
       if (response.data.success) {
