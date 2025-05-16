@@ -38,7 +38,7 @@ export default function LoginCard({ switchToRegister, onLoginSuccess }) {
     return newErrors;
   };
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
@@ -46,11 +46,8 @@ export default function LoginCard({ switchToRegister, onLoginSuccess }) {
       return;
     }
     
-    // Here you would typically handle the login API call
-    console.log('Login data:', formData);
-
     try {
-      const response = await Axios.post('https://newsssssssssss-hltc.onrender.com/register-login/login', formData, {
+      const response = await Axios.post(`${import.meta.env.VITE_BACKEND_URL}/register-login/login`, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -61,7 +58,6 @@ export default function LoginCard({ switchToRegister, onLoginSuccess }) {
         alert('Login successful! Redirecting to dashboard...');
         navigate('/home')
       } else {
-        // Handle login error
         setErrors({ ...errors, server: response.data.message });
       }
     } catch (error) {
