@@ -6,13 +6,13 @@ import connectDB from './config/db.js';
 import loginRegisterRoute from './routes/loginRegisterRoute.js';
 import newsRoute from './routes/newsRoute.js';
 
-dotenv.config(); // Only once, no need for a second call
+dotenv.config();
 
 const app = express();
 
-// CORS setup - ensure CLIENT_URL is correctly loaded
+// CORS setup with more permissive configuration for development
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: true, // Allow all origins temporarily
   credentials: true,
   methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
